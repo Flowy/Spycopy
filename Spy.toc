@@ -1,4 +1,4 @@
-﻿## Interface: 11305
+﻿## Interface: 20501
 ## Title: Spy
 ## Version: 1.1.2
 ## Notes: Detects and alerts you to the presence of nearby enemy players.
@@ -14,6 +14,7 @@
 ## Notes-zhTW: 偵測並警告你附近有敵方玩家出沒。
 ## Creator: Immolation
 ## Author: Slipjack
+## TBC-Updator: SideFlanker
 ## X-Credits-ptBR: Localization: Kasth
 ## X-Credits-zhTW: Localization: Jaspy10
 ## X-Credits-deDE: Localization: Jana

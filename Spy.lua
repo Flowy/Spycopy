@@ -1831,7 +1831,7 @@ function Spy:OnInitialize()
 	Spy:ClampToScreen(Spy.db.profile.ClampToScreen)	
 	ChatFrame_AddMessageEventFilter("CHAT_MSG_SYSTEM", Spy.FilterNotInParty)
 	Spy.WoWBuildInfo = select(4, GetBuildInfo())
-	if Spy.WoWBuildInfo > 20000 then
+	if Spy.WoWBuildInfo > 30000 then
 		DEFAULT_CHAT_FRAME:AddMessage(L["VersionCheck"])
 	end
 end
@@ -2019,7 +2019,6 @@ end
 
 function Spy:CombatLogEvent(info, timestamp, event, hideCaster, srcGUID, srcName, srcFlags, sourceRaidFlags, dstGUID, dstName, dstFlags, destRaidFlags, ...)
 timestamp, event, hideCaster, srcGUID, srcName, srcFlags, sourceRaidFlags, dstGUID, dstName, dstFlags, destRaidFlags, arg12, arg13, arg14, arg15, arg16 = CombatLogGetCurrentEventInfo()
---print(CombatLogGetCurrentEventInfo())
 	if Spy.EnabledInZone then
 		
 		--PetKill code start
@@ -2074,7 +2073,7 @@ timestamp, event, hideCaster, srcGUID, srcName, srcFlags, sourceRaidFlags, dstGU
 		-- analyse the destination unit
 		if bit.band(dstFlags, COMBATLOG_OBJECT_REACTION_HOSTILE) == COMBATLOG_OBJECT_REACTION_HOSTILE and dstGUID and dstName and not SpyPerCharDB.IgnoreData[dstName] then
 			local dstType = strsub(dstGUID, 1,6)
-			if dstType == "player" then
+			if dstType == "Player" then
 				local _, class, race, raceFile, _, name = GetPlayerInfoByGUID(dstGUID)
 				if not Spy.ValidClasses[class] then
 					class = nil
